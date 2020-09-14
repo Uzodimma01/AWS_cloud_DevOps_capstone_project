@@ -1,0 +1,2 @@
+# lint dockerfile
+hadolint Dockerfile
