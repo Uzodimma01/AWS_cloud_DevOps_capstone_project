@@ -8,34 +8,34 @@ pipeline {
          }
          stage('Lint files') {
               steps {
-                  sh 'bash lint.sh'
+                  sh 'bash ../build_files/lint.sh'
               }
          }
          stage('Build Docker Image') {
               steps {
-                  sh 'bash docker_build.sh'
+                  sh 'bash ../build_files/docker_build.sh'
               }
          }
          stage('Upload Image to DockerHub') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "DockerHub"]) {
-                      sh 'bash upload_docker.sh'
+                      sh 'bash ../build_files/upload_docker.sh'
                   }
               }
          }
          stage ('Create cluster') {
              steps {
                   echo 'creating cluster ...'
-                  withAWS(credentials: 'AWS', region: 'us-west-2') {
-                      sh 'bash create_cluster.sh'
+ //                 withAWS(credentials: 'AWS', region: 'us-west-2') {
+ //                     sh 'bash ../build_files/create_cluster.sh'
                   }
              }
          }
          stage ('Create nodes') {
              steps {
                   echo 'creating nodes ...'
-                  withAWS(credentials: 'AWS', region: 'us-west-2') {
-                      sh 'bash ../build_files/create_nodes.sh'
+//                  withAWS(credentials: 'AWS', region: 'us-west-2') {
+//                      sh 'bash ../build_files/create_nodes.sh'
                   }
              }
          }
