@@ -26,7 +26,7 @@ pipeline {
          stage ('Create cluster') {
              steps {
                   echo 'creating cluster ...'
- //                 withAWS(credentials: 'AWS', region: 'us-west-2') {
+                  withAWS(credentials: 'AWS', region: 'us-west-2') {
  //                     sh 'bash ../build_files/create_cluster.sh'
                   }
              }
@@ -34,7 +34,7 @@ pipeline {
          stage ('Create nodes') {
              steps {
                   echo 'creating nodes ...'
-//                  withAWS(credentials: 'AWS', region: 'us-west-2') {
+                  withAWS(credentials: 'AWS', region: 'us-west-2') {
 //                      sh 'bash ../build_files/create_nodes.sh'
                   }
              }
