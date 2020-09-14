@@ -8,7 +8,7 @@ pipeline {
          }
          stage('Lint files') {
               steps {
-                  sh 'bash ./build_files/html_lint.sh.sh'
+                  sh 'bash ./build_files/html_lint.sh'
                   sh 'bash ./build_files/dockerfile_lint.sh'
               }
          }
