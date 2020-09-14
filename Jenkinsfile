@@ -8,18 +8,18 @@ pipeline {
          }
          stage('Lint files') {
               steps {
-                  sh 'bash ../build_files/lint.sh'
+                  sh 'bash ./build_files/lint.sh'
               }
          }
          stage('Build Docker Image') {
               steps {
-                  sh 'bash ../build_files/docker_build.sh'
+                  sh 'bash ./build_files/docker_build.sh'
               }
          }
          stage('Upload Image to DockerHub') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "DockerHub"]) {
-                      sh 'bash ../build_files/upload_docker.sh'
+                      sh 'bash ./build_files/upload_docker.sh'
                   }
               }
          }
@@ -27,7 +27,7 @@ pipeline {
              steps {
                   echo 'creating cluster ...'
                   withAWS(credentials: 'AWS', region: 'us-west-2') {
- //                     sh 'bash ../build_files/create_cluster.sh'
+ //                     sh 'bash ./build_files/create_cluster.sh'
                   }
              }
          }
@@ -35,7 +35,7 @@ pipeline {
              steps {
                   echo 'creating nodes ...'
                   withAWS(credentials: 'AWS', region: 'us-west-2') {
-//                      sh 'bash ../build_files/create_nodes.sh'
+//                      sh 'bash ./build_files/create_nodes.sh'
                   }
              }
          }
@@ -47,7 +47,7 @@ pipeline {
         stage("Clean up") {
               steps{
                     echo 'Cleaning up...'
-                    sh 'bash ../build_files/clean_up.sh'
+                    sh 'bash ./build_files/clean_up.sh'
               }
         }
      }
