@@ -3,7 +3,7 @@ pipeline {
      stages {
          stage('Build') {
               steps {
-                  sh 'echo Building...'
+                  sh 'echo pipeline build started'
               }
          }
          stage('Lint files') {
@@ -30,6 +30,7 @@ pipeline {
                   echo 'Creating cluster ...'
                   withAWS(credentials: 'AWS', region: 'us-west-2') {
                       sh 'bash ./build_files/create_cluster.sh'
+                      sh 'bash ./build_files/make_dir.sh'
                       sh 'bash ./build_files/cluster_arn_output.sh'
                   }
              }
