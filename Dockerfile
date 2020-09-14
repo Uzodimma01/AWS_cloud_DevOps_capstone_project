@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Copy source code to working directory
-COPIES index.html /usr/share/nginx/html
+COPY index.html /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
