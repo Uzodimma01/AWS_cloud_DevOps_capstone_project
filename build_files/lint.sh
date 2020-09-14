@@ -1,5 +1,5 @@
 # lint dockerfile
-hadolint Dockerfile
+hadolint ./build_files/Dockerfile
 
 # lint HTML file
-tidy -q -e *.html
+tidy -q -e ./build_files/index.html
