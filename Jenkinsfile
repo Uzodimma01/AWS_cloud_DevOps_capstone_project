@@ -35,7 +35,7 @@ pipeline {
              steps {
                   echo 'creating nodes ...'
                   withAWS(credentials: 'AWS', region: 'us-west-2') {
-                      sh 'bash create_nodes.sh'
+                      sh 'bash ../build_files/create_nodes.sh'
                   }
              }
          }
@@ -47,7 +47,7 @@ pipeline {
         stage("Clean up") {
               steps{
                     echo 'Cleaning up...'
-                    sh 'bash docker system prune -f'
+                    sh 'bash ../build_files/clean_up.sh'
               }
         }
      }
