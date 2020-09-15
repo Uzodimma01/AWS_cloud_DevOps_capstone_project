@@ -59,11 +59,11 @@ pipeline {
                    }
               } 
         }
-//        stage("Clean up") {
-//              steps{
-//                    echo 'Cleaning up...'
-//                    sh 'bash ./build_files/clean_up.sh'
-//              }
-//        }
+        stage("Clean up") {
+              steps{
+                    echo 'Cleaning up...'
+                    sh 'bash ./build_files/clean_up.sh'
+              }
+        }
      }
 }

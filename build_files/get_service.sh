@@ -1,3 +1,5 @@
+echo "Getting the deployed service"
+
 # Wait for kubbernetes load balancer service to be up
 sleep 30s
 

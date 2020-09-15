@@ -1,3 +1,6 @@
+echo "Writing cluster ARN to file"
+
+# Write cluster ARN to file for later use
 aws cloudformation describe-stacks --region $(<./variables/region.txt) \
  --stack-name eksctl-$(<./variables/cluster_name.txt)-cluster \
  --query "Stacks[0].Outputs[?OutputKey=='ARN'].OutputValue" \
