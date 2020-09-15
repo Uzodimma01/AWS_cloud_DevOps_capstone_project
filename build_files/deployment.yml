@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: capstone-test:v2.0
+  name: docker_image_name
   labels:
-    app: capstone-test:v2.0
+    app: docker_image_name
   namespace: default
 spec:
   replicas: replica_set
   selector:
     matchLabels:
-      app: capstone-test:v2.0
+      app: docker_image_name
   strategy:
     rollingUpdate:
       maxSurge: max_surge
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: capstone-test:v2.0
+        app: docker_image_name
     spec:
       containers:
         - image: docker_image_path
           imagePullPolicy: Always
-          name: capstone-test:v2.0
+          name: docker_image_name
           ports:
             - containerPort: 80
 
@@ -31,13 +31,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: capstone-test:v2.0
+  name: docker_image_name
   labels:
-    app: capstone-test:v2.0
+    app: docker_image_name
 spec:
   type: LoadBalancer
   selector:
-    app: capstone-test:v2.0
+    app: docker_image_name
   ports:
     - port: 80
       targetPort: 80
