@@ -46,15 +46,17 @@ pipeline {
          stage('Deploy') {
               steps {
                    echo 'Deploying container to AWS...'
-                   sh 'bash ./build_files/kubeconfig_update.sh'
-                   sh 'bash ./build_files/switch_context.sh'
-                   sh 'bash ./build_files/copy_deployment_file.sh'
-                   sh 'bash ./build_files/modify_deployment_file.sh'
-                   sh 'bash ./build_files/apply_deployment_file.sh'
-                   sh 'bash ./build_files/get_nodes.sh'
-                   sh 'bash ./build_files/get_deployment.sh'
-                   sh 'bash ./build_files/get_pods.sh'
-                   sh 'bash ./build_files/get_service.sh'
+                   withAWS(credentials: 'AWS', region: 'us-west-2') {
+                        sh 'bash ./build_files/kubeconfig_update.sh'
+                        sh 'bash ./build_files/switch_context.sh'
+                        sh 'bash ./build_files/copy_deployment_file.sh'
+                        sh 'bash ./build_files/modify_deployment_file.sh'
+                        sh 'bash ./build_files/apply_deployment_file.sh'
+                        sh 'bash ./build_files/get_nodes.sh'
+                        sh 'bash ./build_files/get_deployment.sh'
+                        sh 'bash ./build_files/get_pods.sh'
+                        sh 'bash ./build_files/get_service.sh'
+                   }
               } 
         }
         stage("Clean up") {
