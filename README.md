@@ -1,6 +1,7 @@
 # About this project
 As part of criteria for graduating from the AWS Cloud DevOps NanoDegree at Udacity, I have designed a Continous Deployment pipeline as my Capstone project, 
   which for the most part, puts together my understanding about Cloudformation, Jenkins pipeline and application containerization using Docker.
+  
   This project automates the deployment of codes checked into a git repository without the need for human intervention when the build starts, without the use of third party       tool.
 
 ## Pre-configuration
@@ -40,9 +41,6 @@ Do not condense more than one bash scripts/commands with potential points of fai
 Do not take out the commands from the bash script, doing so will cause problems during pipeline build because Jenkins uses Groovy language 
   which does not support the type of variable assignment used in this project.
 Be sure to conform with the parameter guideline when specifying your parameters so that the pipeline will work as expected.
-
-## Improvement
-This project is still at the early stage hence will appreciate suggestions for improvement.
 
 ## External links
 1) Stream EDitor (sed) operation: https://www.cyberciti.biz/faq/how-to-use-sed-to-find-and-replace-text-in-files-in-linux-unix-shell/
