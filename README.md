@@ -2,7 +2,7 @@
 As part of criteria for graduating from the AWS Cloud DevOps NanoDegree at Udacity, I have designed a Continous Deployment pipeline as my Capstone project, 
   which for the most part, puts together my understanding about Cloudformation, Jenkins pipeline and application containerization using Docker.
   
-  This project automates the deployment of codes checked into a git repository without the need for human intervention when the build starts, without the use of third party       tool.
+  This project automates the deployment of codes checked into a git repository without the need for human intervention when the build starts.
 
 ## Pre-configuration
 Ensure Jenkins is configured with the right credentials for the following
